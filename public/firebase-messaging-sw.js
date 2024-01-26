@@ -1,3 +1,5 @@
+import { onMessage } from "firebase/messaging";
+
 importScripts('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js');
 
@@ -31,3 +33,16 @@ messaging.onBackgroundMessage((payload) => {
   
     self.registration.showNotification(notificationTitle, notificationOptions);
   });
+
+
+  messaging.onMessage((payload) => {
+    console.log("Message received. ", payload);
+    
+    const notificationTitle = payload.notification.title;
+    const notificationOptions = {
+        body: payload.notification.body,
+        icon: payload.notification.image
+    };
+  
+    self.registration.showNotification(notificationTitle, notificationOptions);
+});
