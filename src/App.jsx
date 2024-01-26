@@ -1,6 +1,6 @@
 import "./App.css";
 
-import NotificationReqModal from "./components/notificationReqModal";
+import NotificationReqModal from "./components/NotificationReqModal";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 
